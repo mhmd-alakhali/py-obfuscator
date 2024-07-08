@@ -1,4 +1,5 @@
 import sys
+import subprocess
 from obfuscate import obfuscate
 
 def main():
@@ -8,6 +9,10 @@ def main():
         # obfuscate code
         print("Step 1/3... \n Obfuscating")
         obfuscate(project_path)
+
+        # compile code to pyc
+        print("Step 2/3... \n Compiling code")
+        subprocess.run(f"python -m compileall {project_path}", shell=True) 
 
         print("Done")
 
